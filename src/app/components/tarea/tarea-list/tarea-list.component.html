@@ -3,8 +3,8 @@
     <h6 class="text-center">Lista de Tareas</h6>
     <table class="table table-sm table-hover">
       <tbody>
-        <tr>
-          
+        <tr *ngFor="let tarea of tareaList">
+          <td>{{tarea.descripcion}}</td>
         </tr>
       </tbody>
     </table>
