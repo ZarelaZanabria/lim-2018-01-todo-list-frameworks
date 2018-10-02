@@ -5,6 +5,11 @@
       <tbody>
         <tr *ngFor="let tarea of tareaList">
           <td>{{tarea.descripcion}}</td>
+          <td>
+            <button class="btn btn-secondary text-white">
+              <i class=" far fa-edit"></i>               
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
