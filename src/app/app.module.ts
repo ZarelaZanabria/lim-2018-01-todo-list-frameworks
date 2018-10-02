@@ -1,25 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Modules
+import {FormsModule} from '@angular/forms';
+
 import { AppComponent } from './app.component';
-import { TareaComponent } from './components/tarea/tarea.component';
+
 //Firebase
 import {AngularFireDatabaseModule} from 'angularfire2/database'
-import {AngularFireModule} from 'angularfire2'
-//Importamos el archivo de connexión 
-import {environment} from '../environments/environment'
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+//Componentes
+import { TareaComponent } from './components/tarea/tarea.component';
+import { TareaListComponent } from './components/tarea/tarea-list/tarea-list.component';
+import { TareaAddComponent } from './components/tarea/tarea-add/tarea-add.component'
+
+//Servicios 
+
+import { TareasService } from './services/tareas.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TareaComponent
+    TareaComponent,
+    TareaListComponent,
+    TareaAddComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    TareasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
