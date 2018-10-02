@@ -50,6 +50,11 @@ export class TareaListComponent implements OnInit {
       });
   }
 
+  onMarcar($key : string){
+    document.getElementById('completed');
+
+  }
+
   onEdit (tarea : Tareas){
     //Creamos una nueva copia con Object.assign 
     this.tareaService.selectedTarea = Object.assign({},tarea);
