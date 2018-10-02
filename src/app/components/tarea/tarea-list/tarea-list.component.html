@@ -1,14 +1,22 @@
 <div class="card">
   <div class="card-body">
+    <!-- Agregamos un campo Oculto -->
+
     <h6 class="text-center">Lista de Tareas</h6>
     <table class="table table-sm table-hover">
       <tbody>
         <tr *ngFor="let tarea of tareaList">
           <td>{{tarea.descripcion}}</td>
           <td>
-            <button class="btn btn-secondary text-white">
-              <i class=" far fa-edit"></i>               
-            </button>
+            <a class="btn btn-success text-white">
+              <i class="fa fa-calendar-check"></i>
+            </a>
+            <a class="btn btn-secondary text-white" (click)="onEdit(tarea)">
+              <i class=" far fa-edit"></i>
+            </a>
+            <a class="btn btn-danger text-white" (click)="onDelete(tarea.$key)">
+              <i class="fa fa-trash-alt"></i>
+            </a>
           </td>
         </tr>
       </tbody>

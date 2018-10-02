@@ -13,7 +13,7 @@ import { Tareas } from '../../../models/tareas';
   styleUrls: ['./tarea-add.component.css']
 })
 export class TareaAddComponent implements OnInit {
-  
+
   //Requerimos nuestro Servicio que contiene los metodos
   constructor(private tareaService: TareasService) { }
 
@@ -27,19 +27,25 @@ export class TareaAddComponent implements OnInit {
   }
   /*Agregar el metodo para que sea utilizado en el html
   para poder agregar una nueva tarea */
-  onSubmit(tareaForm: NgForm){
-    this.tareaService.insertTarea(tareaForm.value);
-    this.resetForm(tareaForm);
+  onSubmit(tareaForm: NgForm) {
+    if (tareaForm.value.$key == null) {
+      this.tareaService.insertTarea(tareaForm.value);
+      this.resetForm(tareaForm);
+    }
+    else {
+      this.tareaService.updateTarea(tareaForm.value);
+      this.resetForm(tareaForm);
+    }
 
   }
 
-/*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
-    ? siginifica que es opcional */
-  resetForm(tareaForm?: NgForm){
-    if(tareaForm !=null){
-      tareaForm.reset(); 
+  /*Resetear el formulario cuando resivimos el formulario dera de tipo NgForm
+      ? siginifica que es opcional */
+  resetForm(tareaForm?: NgForm) {
+    if (tareaForm != null) {
+      tareaForm.reset();
       this.tareaService.selectedTarea = new Tareas;
-      
+
     }
   }
 }

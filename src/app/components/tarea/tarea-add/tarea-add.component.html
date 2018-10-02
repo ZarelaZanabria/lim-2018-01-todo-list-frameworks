@@ -1,7 +1,9 @@
 <div class="card mt-5">
   <div class="card-body">
     <!-- Tengo problemas al cargar el formulario -->
-<form #tareaForm="ngForm" (ngSubmit)="onSubmit(tareaForm)">
+    <form #tareaForm="ngForm" (ngSubmit)="onSubmit(tareaForm)">
+      <!-- Agregamos un campo oculto para poder actualizar la Tarea -->
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="tareaService.selectedTarea.$key">
       <div class="form-group">
         <input type="text" class="form-control" name="descripcion" #name="ngModel" [(ngModel)]="tareaService.selectedTarea.descripcion"
           placeholder="Agregar Tarea">

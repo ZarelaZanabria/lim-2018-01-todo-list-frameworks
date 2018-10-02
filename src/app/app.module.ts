@@ -19,6 +19,10 @@ import { TareaAddComponent } from './components/tarea/tarea-add/tarea-add.compon
 
 import { TareasService } from './services/tareas.service';
 
+// Toastr
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/* import { ToastrModule } from 'ngx-toastr'; */
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { TareasService } from './services/tareas.service';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+   /*  ToastrModule.forRoot(), */
+    BrowserAnimationsModule
   ],
   providers: [
     TareasService

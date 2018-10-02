@@ -21,6 +21,7 @@ export class TareaListComponent implements OnInit {
   Nos traemos el servicio y la importamos en el constructor*/
   constructor(
     private tareaService: TareasService,
+   /*  private toastr: ToastrService */
     
     )
      { }
@@ -43,7 +44,7 @@ export class TareaListComponent implements OnInit {
         item.forEach( element=>{
           //El contemido del element convertimos al Jsony los almacenados en tar
           let tar = element.payload.toJSON();
-          tar['$key']=element.key;
+          tar["$key"]=element.key;
           //Asignamos a la lista el elemento tar que es una Tarea
           this.tareaList.push(tar as Tareas);
         });
@@ -51,7 +52,15 @@ export class TareaListComponent implements OnInit {
   }
 
   onEdit (tarea : Tareas){
+    //Creamos una nueva copia con Object.assign 
     this.tareaService.selectedTarea = Object.assign({},tarea);
+
+  }
+  onDelete($key : string){
+    if(confirm('Esta segura que desea eliminar esta tarea?')) {
+      this.tareaService.deleteTarea($key);
+      /* this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); */
+    }
 
   }
 
