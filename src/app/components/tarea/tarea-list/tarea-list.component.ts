@@ -6,8 +6,7 @@ import { TareasService } from '../../../services/tareas.service';
 //Tareas Class
 import { Tareas } from '../../../models/tareas';
 // toastr
- import { ToastrService } from 'ngx-toastr'; 
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-tarea-list',
   templateUrl: './tarea-list.component.html',
@@ -59,7 +58,7 @@ export class TareaListComponent implements OnInit {
   onDelete($key : string){
     if(confirm('Esta segura que desea eliminar esta tarea?')) {
       this.tareaService.deleteTarea($key);
-      this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); 
+      this.toastr.warning('Deleted Successfully', 'Product Removed');
     }
 
   }

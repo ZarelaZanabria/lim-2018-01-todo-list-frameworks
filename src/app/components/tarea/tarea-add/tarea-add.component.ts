@@ -7,6 +7,8 @@ import { TareasService } from '../../../services/tareas.service';
 //Tareas Class
 import { Tareas } from '../../../models/tareas';
 
+// toastr
+import { ToastrService } from 'ngx-toastr'; 
 @Component({
   selector: 'app-tarea-add',
   templateUrl: './tarea-add.component.html',
@@ -15,7 +17,10 @@ import { Tareas } from '../../../models/tareas';
 export class TareaAddComponent implements OnInit {
 
   //Requerimos nuestro Servicio que contiene los metodos
-  constructor(private tareaService: TareasService) { }
+  constructor(
+    private tareaService: TareasService,
+    private toastr: ToastrService 
+    ) { }
 
   /*Inicializamos el arreglo donde se guardan los datos
   crea el arreglo dentro del servicio */
@@ -35,6 +40,7 @@ export class TareaAddComponent implements OnInit {
     else {
       this.tareaService.updateTarea(tareaForm.value);
       this.resetForm(tareaForm);
+      this.toastr.success('Operacion Satisfactoria', 'Product Registered');
     }
 
   }

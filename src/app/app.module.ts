@@ -21,8 +21,7 @@ import { TareasService } from './services/tareas.service';
 
 // Toastr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr'; 
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
