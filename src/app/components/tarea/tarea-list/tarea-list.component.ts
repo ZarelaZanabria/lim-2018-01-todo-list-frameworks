@@ -59,7 +59,7 @@ export class TareaListComponent implements OnInit {
   onDelete($key : string){
     if(confirm('Esta segura que desea eliminar esta tarea?')) {
       this.tareaService.deleteTarea($key);
-       this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); 
+      this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); 
     }
 
   }
