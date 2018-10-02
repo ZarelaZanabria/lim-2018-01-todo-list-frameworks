@@ -6,7 +6,7 @@ import { TareasService } from '../../../services/tareas.service';
 //Tareas Class
 import { Tareas } from '../../../models/tareas';
 // toastr
-/* import { ToastrService } from 'ngx-toastr'; */
+ import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-tarea-list',
@@ -21,7 +21,7 @@ export class TareaListComponent implements OnInit {
   Nos traemos el servicio y la importamos en el constructor*/
   constructor(
     private tareaService: TareasService,
-   /*  private toastr: ToastrService */
+    private toastr: ToastrService 
     
     )
      { }
@@ -59,7 +59,7 @@ export class TareaListComponent implements OnInit {
   onDelete($key : string){
     if(confirm('Esta segura que desea eliminar esta tarea?')) {
       this.tareaService.deleteTarea($key);
-      /* this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); */
+       this.toastr.warning('Eliminado Satisfactoriamiente ', 'Tarea Eliminada'); 
     }
 
   }
