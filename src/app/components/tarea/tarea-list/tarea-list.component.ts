@@ -53,9 +53,9 @@ export class TareaListComponent implements OnInit {
   }
 
   onEdit (tarea : Tareas){
-    //Creamos una nueva copia con Object.assign 
+    //Creamos una nueva copia con Object.assign     
     this.tareaService.selectedTarea = Object.assign({},tarea);
-
+    console.log(this.tareaService.selectedTarea);
   }
   onDelete($key : string){
     if(confirm('Esta segura que desea eliminar esta tarea?')) {

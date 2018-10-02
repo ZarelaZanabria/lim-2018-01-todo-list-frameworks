@@ -17,7 +17,7 @@ export class TareaAddComponent implements OnInit {
 
   //Requerimos nuestro Servicio que contiene los metodos
   constructor(
-    private tareaService: TareasService,
+    public tareaService: TareasService,
 
     ) { }
 
@@ -38,7 +38,8 @@ export class TareaAddComponent implements OnInit {
     }
     else {
       this.tareaService.updateTarea(tareaForm.value);
-      this.resetForm(tareaForm); 
+      this.resetForm(tareaForm);
+ 
     }
 
   }
